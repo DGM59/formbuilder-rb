@@ -26,7 +26,7 @@ class ResponseFieldPhoneNumber < ResponseField
     end
 
     def render_entry(value, opts = {})
-      value
+      value.delete(' ').gsub("-", "")
     end
 
     def validate_response(raw_value)
