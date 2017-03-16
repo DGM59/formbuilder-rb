@@ -29,7 +29,8 @@ module Formbuilder
       value
     end
 
-    def validate_response(value)
+    def validate_response(raw_value)
+      value = raw_value.delete(' ').gsub("-", "")
       unless (Float(value) rescue nil)
         "isn't a valid number."
       end
